@@ -1,0 +1,11 @@
+import { create } from "zustand";
+
+type CountStoreType = {
+  count: number;
+  inc: () => void;
+};
+
+export const useCountStore = create<CountStoreType>()((set) => ({
+  count: 1,
+  inc: () => set((state) => ({ count: state.count + 1 })),
+}));
